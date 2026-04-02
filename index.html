@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mustafa Talha İlerisoy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --border: #e8e6e1;
+      --text: #1a1a1a;
+      --text-muted: #6b6b6b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --tag-bg: #eff6ff;
+      --tag-text: #1d4ed8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 250, 248, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    nav .nav-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      font-weight: 400;
+      transition: color 0.15s;
+    }
+
+    nav ul a:hover { color: var(--accent); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    /* ── Hero ── */
+    .hero {
+      padding-top: 72px;
+      padding-bottom: 60px;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    .hero-content { flex: 1; }
+
+    .hero-content h1 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 14.5px;
+      margin-bottom: 4px;
+    }
+
+    .hero-subtitle a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .hero-subtitle a:hover { text-decoration: underline; }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ── Section headings ── */
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1.65rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+    }
+
+    /* ── About ── */
+    .about-text {
+      max-width: 640px;
+      color: #333;
+      font-size: 15.5px;
+      line-height: 1.8;
+    }
+
+    .about-text p + p { margin-top: 14px; }
+
+    /* ── Research interests ── */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid #bfdbfe;
+      padding: 5px 13px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 500;
+    }
+
+    /* ── Education ── */
+    .edu-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .edu-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .edu-body h3 {
+      font-size: 15.5px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .edu-body p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .edu-body p a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .edu-body p a:hover { text-decoration: underline; }
+
+    /* ── Publications ── */
+    .pub-empty {
+      padding: 36px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14.5px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 32px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero-inner { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+      .hero-links { justify-content: center; }
+      .hero-content h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-name">M. T. İlerisoy</a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="CV.pdf" target="_blank">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <div class="container">
+    <section class="hero" id="about">
+      <div class="hero-inner">
+        <img src="profile.jpeg" alt="Mustafa Talha İlerisoy" class="hero-photo" />
+        <div class="hero-content">
+          <h1>Mustafa Talha İlerisoy</h1>
+          <p class="hero-subtitle">PhD Candidate &nbsp;·&nbsp; Eindhoven University of Technology (TU/e)</p>
+          <p class="hero-subtitle">
+            Advised by <a href="https://aqibsaeed.github.io" target="_blank" rel="noopener">Prof. Aaqib Saeed</a>
+          </p>
+          <div class="hero-links">
+            <a href="CV.pdf" target="_blank" class="btn btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              CV
+            </a>
+            <a href="https://www.linkedin.com/in/mtilerisoy/" target="_blank" rel="noopener" class="btn btn-outline">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section>
+      <p class="section-label">About</p>
+      <div class="about-text">
+        <p>
+          I am a PhD candidate at the <strong>Eindhoven University of Technology (TU/e)</strong>, where I am advised by
+          <a href="https://aqibsaeed.github.io" target="_blank" rel="noopener">Prof. Aaqib Saeed</a>.
+          My research sits at the intersection of machine learning and healthcare, with a focus on building
+          intelligent systems that can understand and reason over complex, heterogeneous health data.
+        </p>
+        <p>
+          I am broadly interested in how multimodal learning can unlock richer representations from clinical data,
+          and how these advances can translate into reliable, deployable AI tools for healthcare.
+        </p>
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section id="research">
+      <p class="section-label">Research Interests</p>
+      <h2>What I Work On</h2>
+      <div class="tags">
+        <span class="tag">AI for Healthcare</span>
+        <span class="tag">Multimodal Learning</span>
+        <span class="tag">Clinical Decision Support</span>
+        <span class="tag">Representation Learning</span>
+        <span class="tag">Medical Data Analysis</span>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+      <p class="section-label">Education</p>
+      <h2>Academic Background</h2>
+      <div class="edu-item">
+        <div class="edu-dot"></div>
+        <div class="edu-body">
+          <h3>PhD in Computer Science &amp; AI</h3>
+          <p>
+            <a href="https://www.tue.nl" target="_blank" rel="noopener">Eindhoven University of Technology (TU/e)</a>
+            &nbsp;·&nbsp; 2024 – present
+          </p>
+          <p style="margin-top:4px;">
+            Supervised by <a href="https://aqibsaeed.github.io" target="_blank" rel="noopener">Prof. Aaqib Saeed</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <p class="section-label">Publications</p>
+      <h2>Selected Works</h2>
+      <div class="pub-empty">
+        No publications yet — check back soon.
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Mustafa Talha İlerisoy &nbsp;·&nbsp; Eindhoven, Netherlands</p>
+  </footer>
+
+</body>
+</html>
