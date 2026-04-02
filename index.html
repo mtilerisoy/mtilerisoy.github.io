@@ -102,14 +102,22 @@
       gap: 48px;
     }
 
-    .hero-photo {
+    .hero-photo-wrap {
       flex-shrink: 0;
+      width: 154px;
+      height: 154px;
+      background: var(--border);
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo {
       width: 148px;
       height: 148px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--border);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
     }
 
     .hero-content { flex: 1; }
@@ -301,7 +309,9 @@
   <div class="container">
     <section class="hero" id="about">
       <div class="hero-inner">
-        <img src="profile.jpeg" alt="Mustafa Talha Ilerisoy" class="hero-photo" />
+        <div class="hero-photo-wrap">
+          <img src="profile.jpeg" alt="Mustafa Talha Ilerisoy" class="hero-photo" />
+        </div>
         <div class="hero-content">
           <h1>Mustafa Talha Ilerisoy</h1>
           <p class="hero-subtitle">PhD Candidate &nbsp;·&nbsp; Eindhoven University of Technology (TU/e)</p>
